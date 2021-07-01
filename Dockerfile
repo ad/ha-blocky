@@ -20,7 +20,7 @@ RUN go mod download
 
 ARG opts
 RUN env ${opts} make build
-COPY config.yml config.yml
+COPY appconfig.yml config.yml
 
 # final stage
 FROM alpine:3.12
