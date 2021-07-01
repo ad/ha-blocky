@@ -31,4 +31,4 @@ blocking:
     default:
       - ads
 port: 53
-httpPort: 80
+httpPort: 18001

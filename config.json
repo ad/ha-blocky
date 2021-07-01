@@ -5,7 +5,8 @@
     "description": "Fast and lightweight DNS proxy as ad-blocker for local network with many features",
     "url": "https://github.com/ad/ha-blocky",
     "ingress": true,
-    "ingress_port": 0,
+    "ingress_port": 18001,
+    "webui": "http://[HOST]:[PORT:18001]/",
     "panel_icon": "mdi:shield-check",
     "startup": "services",
     "homeassistant": "0.113.2",
@@ -13,11 +14,11 @@
     "init": false,
     "ports": {
       "53/udp": 53,
-      "80/tcp": null
+      "18001/tcp": 18001
     },
     "ports_description": {
       "53/udp": "DNS server port",
-      "4000/tcp": "Web interface (Not required for Ingress)"
+      "18001/tcp": "Web interface (Not required for Ingress)"
     },
     "auth_api": true,
     "host_network": true,
