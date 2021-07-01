@@ -5,7 +5,7 @@ upstream:
     - 9.9.9.9
     - https://dns10.quad9.net/dns-query
 blocking:
-  blockType: nxDomain
+  blockType: zeroIP
   blackLists:
     ads:
       - https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
@@ -32,3 +32,4 @@ blocking:
       - ads
 port: 53
 httpPort: 18001
+logLevel: error
