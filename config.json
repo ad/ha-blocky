@@ -2,7 +2,7 @@
     "name": "0xERR0R/blocky",
     "version": "dev",
     "slug": "blocky",
-    "description": "Fast and lightweight DNS proxy as ad-blocker for local network with many features ",
+    "description": "Fast and lightweight DNS proxy as ad-blocker for local network with many features",
     "url": "https://github.com/ad/ha-blocky",
     "ingress": true,
     "ingress_port": 0,
@@ -13,7 +13,7 @@
     "init": false,
     "ports": {
       "53/udp": 53,
-      "4000/tcp": null
+      "80/tcp": null
     },
     "ports_description": {
       "53/udp": "DNS server port",
