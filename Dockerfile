@@ -1,5 +1,5 @@
 # build stage
-FROM golang:1.16-alpine AS build-env
+FROM golang:1.17-alpine AS build-env
 RUN apk add --no-cache \
     git \
     make \
@@ -39,7 +39,7 @@ COPY --from=build-env /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 COPY --from=build-env /src/config.yml /app/config.yml
 
-HEALTHCHECK --interval=1m --timeout=3s CMD dig @127.0.0.1 -p 53 healthcheck.blocky +tcp || exit 1
+HEALTHCHECK --interval=1m --timeout=3s CMD dig @127.0.0.1 -p 53 healthcheck.blocky +tcp +short || exit 1
 
 WORKDIR /app
 
