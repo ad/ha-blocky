@@ -27,6 +27,11 @@ blocking:
       - https://raw.githubusercontent.com/xxcriticxx/.pl-host-file/master/hosts.txt
       - https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/Subscribable-Lists/CountryCodesLists/Russia.txt
       - https://raw.githubusercontent.com/TakoYachty/Gift-Card-Killer/master/Mega%20Untrusted%20Hosts%20Blocker.txt
+  whiteLists:
+    ads:
+      - |
+        # inline definition with YAML literal block scalar style
+        yandex.ru
   clientGroupsBlock:
     default:
       - ads
