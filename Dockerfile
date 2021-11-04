@@ -1,5 +1,5 @@
 # build stage
-FROM golang:1.17-alpine AS build-env
+FROM golang:1.17.2-alpine3.14 AS build-env
 RUN apk add --no-cache \
     git \
     make \
@@ -23,7 +23,7 @@ RUN env ${opts} make build
 COPY appconfig.yml config.yml
 
 # final stage
-FROM alpine:3.12
+FROM alpine:3.14
 
 LABEL org.opencontainers.image.source="https://github.com/0xERR0R/blocky" \
       org.opencontainers.image.url="https://github.com/0xERR0R/blocky" \
