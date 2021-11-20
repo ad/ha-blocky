@@ -34,6 +34,7 @@ COPY --from=build-env /src/bin/blocky /app/blocky
 
 # the timezone data:
 COPY --from=build-env /usr/share/zoneinfo /usr/share/zoneinfo
+
 # the tls certificates:
 COPY --from=build-env /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
