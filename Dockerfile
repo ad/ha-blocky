@@ -17,8 +17,6 @@ COPY appconfig.yml config.yml
 
 RUN git clone https://github.com/0xERR0R/blocky
 
-RUN go mod download
-
 RUN go install github.com/abice/go-enum@v0.3.8
 RUN go generate ./...
 RUN BUILD_TIME=$(date '+%Y%m%d-%H%M%S')
