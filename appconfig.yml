@@ -37,4 +37,4 @@ blocking:
       - ads
 port: 53
 httpPort: 18001
-logLevel: info
+logLevel: error
