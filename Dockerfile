@@ -13,14 +13,19 @@ ENV GO111MODULE=on \
     CGO_ENABLED=0
 
 WORKDIR /src
+COPY appconfig.yml config.yml
 
 RUN git clone https://github.com/0xERR0R/blocky .
 
 RUN go mod download
 
-ARG opts
-RUN env ${opts} make build
-COPY appconfig.yml config.yml
+RUN go install github.com/abice/go-enum@v0.3.8
+RUN go generate ./...
+RUN BUILD_TIME=$(date '+%Y%m%d-%H%M%S')
+RUN VERSION=$(git describe --always --tags)
+RUN go build -v -ldflags="-w -s -X github.com/0xERR0R/blocky/util.Version=${VERSION} -X github.com/0xERR0R/blocky/util.BuildTime=${BUILD_TIME}" -o /src/bin/blocky
+
+
 
 # final stage
 FROM alpine:3.14
