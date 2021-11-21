@@ -15,7 +15,7 @@ ENV GO111MODULE=on \
 WORKDIR /src
 COPY appconfig.yml config.yml
 
-RUN git clone https://github.com/0xERR0R/blocky .
+RUN git clone https://github.com/0xERR0R/blocky
 
 RUN go mod download
 
