@@ -23,10 +23,7 @@ RUN go mod download
 RUN go install github.com/abice/go-enum@v0.3.8
 RUN go generate ./...
 
-RUN BUILD_TIME=$(date '+%Y%m%d-%H%M%S')
-RUN VERSION=$(git describe --always --tags)
-
-RUN go build -v -ldflags="-w -s -X github.com/0xERR0R/blocky/util.Version=${VERSION} -X github.com/0xERR0R/blocky/util.BuildTime=${BUILD_TIME}" -o /src/bin/blocky
+RUN go build -v -ldflags="-w -s -X github.com/0xERR0R/blocky/util.Version=${BUILD_REF} -X github.com/0xERR0R/blocky/util.BuildTime=${BUILD_DATE}" -o /src/bin/blocky
 
 
 # final stage
