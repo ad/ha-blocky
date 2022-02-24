@@ -1,11 +1,10 @@
 # build stage
-FROM golang:1.17.2-alpine3.14 AS build-env
+FROM golang:1.17-alpine AS build-env
 RUN apk add --no-cache \
     git \
     make \
     gcc \
     libc-dev \
-    tzdata \
     zip \
     ca-certificates
 
@@ -27,25 +26,23 @@ RUN go build -v -ldflags="-w -s -X github.com/0xERR0R/blocky/util.Version=${BUIL
 
 
 # final stage
-FROM alpine:3.14
+FROM alpine:3.15
 
 LABEL org.opencontainers.image.source="https://github.com/0xERR0R/blocky" \
       org.opencontainers.image.url="https://github.com/0xERR0R/blocky" \
       org.opencontainers.image.title="DNS proxy as ad-blocker for local network"
 
-RUN apk add --no-cache bind-tools tini
+RUN apk add --no-cache ca-certificates bind-tools tini tzdata libcap && \
+    adduser -S -D -H -h /app -s /sbin/nologin blocky && \
+    setcap 'cap_net_bind_service=+ep' /app/blocky
+    
 COPY --from=build-env /src/bin/blocky /app/blocky
-
-# the timezone data:
-COPY --from=build-env /usr/share/zoneinfo /usr/share/zoneinfo
-
-# the tls certificates:
-COPY --from=build-env /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 COPY --from=build-env /src/config.yml /app/config.yml
 
 HEALTHCHECK --interval=1m --timeout=3s CMD dig @127.0.0.1 -p 53 healthcheck.blocky +tcp +short || exit 1
 
+USER blocky
 WORKDIR /app
 
 ENTRYPOINT ["/sbin/tini", "--"]
