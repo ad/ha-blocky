@@ -1,7 +1,5 @@
 upstream:
   externalResolvers:
-    - tcp+udp:[2606:4700:4700::1111]:53
-    - tcp+udp:[2620:fe::fe]:53
     - 1.1.1.1
     - 8.8.8.8
     - 9.9.9.9
