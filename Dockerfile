@@ -32,11 +32,11 @@ LABEL org.opencontainers.image.source="https://github.com/0xERR0R/blocky" \
       org.opencontainers.image.url="https://github.com/0xERR0R/blocky" \
       org.opencontainers.image.title="DNS proxy as ad-blocker for local network"
 
+COPY --from=build-env /src/bin/blocky /app/blocky
+
 RUN apk add --no-cache ca-certificates bind-tools tini tzdata libcap && \
     adduser -S -D -H -h /app -s /sbin/nologin blocky && \
     setcap 'cap_net_bind_service=+ep' /app/blocky
-    
-COPY --from=build-env /src/bin/blocky /app/blocky
 
 COPY --from=build-env /src/config.yml /app/config.yml
 
