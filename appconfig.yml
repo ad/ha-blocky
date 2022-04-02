@@ -1,9 +1,22 @@
 upstream:
-  externalResolvers:
-    - dot.xfinity.com
+  default:
+    - https://1.1.1.1/dns-query
+    - https://9.9.9.11/dns-query
     - https://dns.quad9.net/dns-query
     - https://dns10.quad9.net/dns-query
     - https://dns11.quad9.net/dns-query
+    - tcp-tls:one.one.one.one
+    - tcp-tls:dns.google
+    - tcp-tls:dns.quad9.net
+    - tcp-tls:doh.mullvad.net
+    - tcp-tls:dns3.digitalcourage.de
+    - tcp-tls:dns.digitale-gesellschaft.ch:853
+caching:
+  minTime: 30
+  maxTime: 300
+  prefetching: true
+  prefetchExpires: 360
+  prefetchThreshold: 2
 blocking:
   blockType: zeroIP
   blackLists:
