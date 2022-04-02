@@ -35,6 +35,6 @@
       "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
       "ssl": "bool",
       "certfile": "str",
-      "keyfile": "str",
+      "keyfile": "str"
     }
   }
