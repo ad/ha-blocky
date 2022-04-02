@@ -1,6 +1,6 @@
 {
     "name": "0xERR0R/blocky",
-    "version": "0.18.3",
+    "version": "0.18.4",
     "slug": "blocky",
     "description": "Fast and lightweight DNS proxy as ad-blocker for local network with many features",
     "url": "https://github.com/ad/ha-blocky",
