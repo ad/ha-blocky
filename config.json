@@ -1,6 +1,6 @@
 {
     "name": "0xERR0R/blocky",
-    "version": "0.18.2",
+    "version": "0.18.3",
     "slug": "blocky",
     "description": "Fast and lightweight DNS proxy as ad-blocker for local network with many features",
     "url": "https://github.com/ad/ha-blocky",
@@ -26,6 +26,7 @@
     "hassio_role": "manager",
     "map": ["ssl"],
     "options": {
+      "log_level": "error",
       "ssl": true,
       "certfile": "fullchain.pem",
       "keyfile": "privkey.pem"
@@ -35,6 +36,5 @@
       "ssl": "bool",
       "certfile": "str",
       "keyfile": "str",
-      "leave_front_door_open": "bool?"
     }
   }
