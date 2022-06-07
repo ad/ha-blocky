@@ -1,6 +1,6 @@
 {
     "name": "0xERR0R/blocky",
-    "version": "0.18.4",
+    "version": "0.19.1",
     "slug": "blocky",
     "description": "Fast and lightweight DNS proxy as ad-blocker for local network with many features",
     "url": "https://github.com/ad/ha-blocky",
@@ -9,7 +9,7 @@
     "webui": "http://[HOST]:[PORT:18001]/",
     "panel_icon": "mdi:shield-check",
     "startup": "services",
-    "homeassistant": "2021.11.0",
+    "homeassistant": "2022.05.0",
     "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
     "init": false,
     "ports": {
