@@ -26,7 +26,7 @@ RUN go build -v -ldflags="-w -s -X github.com/0xERR0R/blocky/util.Version=${BUIL
 
 
 # final stage
-FROM alpine:3.15
+FROM alpine:3.16
 
 LABEL org.opencontainers.image.source="https://github.com/0xERR0R/blocky" \
       org.opencontainers.image.url="https://github.com/0xERR0R/blocky" \
